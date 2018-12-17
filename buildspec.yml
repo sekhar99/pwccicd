@@ -1,0 +1,13 @@
+
+version: 0.2
+phases:
+  install:
+    commands:
+      - npm install 
+      - aws cloudformation package --template-file samTemplate.yaml  --s3-bucket pwccicddemo
+                                   --output-template-file test.yaml
+artifacts:
+  type: zip
+  files:
+    - samTemplate.yaml
+    - test.yaml
